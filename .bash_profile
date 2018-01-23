@@ -1,18 +1,13 @@
-# echo is like puts for bash (bash is the program running in your terminal)
-echo "Loading ~/.bash_profile a shell script that runs in every new terminal you open"
-
-# $VARIABLE will render before the rest of the command is executed
+## $VARIABLE will render before the rest of the command is executed
 echo "Logged in as $USER at $(hostname)"
-
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-# Path for RVM
-test -d "$HOME/.rvm/bin" && PATH="$PATH:$HOME/.rvm/bin"
 
 # Rbenv autocomplete and shims
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # Path for RBENV
 test -d "$HOME/.rbenv/" && PATH="$HOME/.rbenv/bin:$PATH"
+
+# Kiex
+[[ -s "$HOME/.kiex/scripts/kiex" ]] && source "$HOME/.kiex/scripts/kiex"
 
 # Path changes are made non-destructive with PATH=new_path;$PATH   This is like A=A+B so we preserve the old path
 
@@ -74,10 +69,13 @@ alias ls='ls -Gh'
 # Force grep to always use the color option and show line numbers
 export GREP_OPTIONS='--color=always'
 
-# Set sublime as the default editor
-which -s subl && export EDITOR="subl --wait"
-
 # Useful aliases
-
-alias e="subl"
 alias be="bundle exec"
+
+# Rbenv config
+export PATH="$HOME/.rbenv/shims:$PATH"
+
+# MySQL Config
+
+export MYSQL_PATH=/usr/local/Cellar/mysql/5.6.27
+export PATH=$PATH:$MYSQL_PATH/bin
