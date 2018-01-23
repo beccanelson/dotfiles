@@ -8,6 +8,7 @@ cp .gitignore_global  $HOME/.gitignore_global
 cp .irbrc             $HOME/.irbrc
 cp .rspec             $HOME/.rspec
 cp .inputrc           $HOME/.inputrc
+cp .vimrc             $HOME/.vimrc
 
 echo "Dotfiles in $USER's home directory have been replaced"
 echo "Reload shell for changes to take effect"
